@@ -4,16 +4,20 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import br.edu.utfpr.td.tsi.calculadora.imposto.modelo.calculation.TaxCalculation;
+
 public class Main {
     public static void main(String[] args) {
         
         ArrayList<Prodution> listProdution = ReadFiles.ReadProdutionFile();
+        
 
         BigDecimal TotalTax = BigDecimal.ZERO;
         BigDecimal TotalValue = BigDecimal.ZERO;
 
         for (Prodution prodution : listProdution) {
-            TotalTax = TotalTax.add(prodution.getLocalProducao().taxCalculation().calculateTax(prodution));
+            TaxCalculation taxCalculation = prodution.getLocalProducao().taxCalculation();
+            TotalTax = TotalTax.add(taxCalculation.calculateTax(prodution));
             TotalValue = TotalValue.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())));
         }
 

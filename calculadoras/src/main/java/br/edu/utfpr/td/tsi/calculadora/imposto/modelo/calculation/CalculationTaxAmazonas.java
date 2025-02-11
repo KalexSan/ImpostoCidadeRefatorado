@@ -11,9 +11,10 @@ public class CalculationTaxAmazonas implements TaxCalculation {
     @Override
     public BigDecimal calculateTax(Prodution prodution) {
         BigDecimal valueTax = BigDecimal.ZERO;
-            
+        BigDecimal divisor = new BigDecimal("9.99").setScale(10, RoundingMode.HALF_UP);
+                
             valueTax = valueTax.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())
-        	    .divide(new BigDecimal("9.99", MathContext.DECIMAL128).setScale(2, RoundingMode.UP))));
+        	    .divide(divisor, MathContext.DECIMAL128).setScale(2, RoundingMode.UP)));
         
             return valueTax;    
     }
