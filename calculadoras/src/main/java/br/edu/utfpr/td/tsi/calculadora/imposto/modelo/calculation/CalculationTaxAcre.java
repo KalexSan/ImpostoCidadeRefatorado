@@ -11,10 +11,11 @@ public class CalculationTaxAcre implements TaxCalculation {
     @Override
     public BigDecimal calculateTax(Prodution prodution) {
         BigDecimal valueTax = BigDecimal.ZERO;
-        valueTax = valueTax.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())
-        .divide(new BigDecimal("11.11", MathContext.DECIMAL128).setScale(2, RoundingMode.UP))));
+        
+            valueTax = valueTax.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())
+                .divide(new BigDecimal("11.11", MathContext.DECIMAL128).setScale(2, RoundingMode.UP))));
 
-        return valueTax;
+            return valueTax;
     }
     
 
