@@ -22,7 +22,7 @@ public class ReadFilesTest {
 
         jsonVazio = "[]";
 
-        jsonInvalido = "[{invalid jaon}]";
+        jsonInvalido = "[{invalid json}]";
     }
 
     @Test
