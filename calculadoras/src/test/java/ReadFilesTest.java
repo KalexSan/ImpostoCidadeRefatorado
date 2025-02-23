@@ -33,7 +33,7 @@ public class ReadFilesTest {
         assertEquals(1, resultado.size());
         assertEquals(65, resultado.get(0).getQuantidade());
         assertEquals(new BigDecimal("28.71"), resultado.get(0).getValorUnitario());
-        assertEquals("RONDONIA", resultado.get(0).getLocalProducao());
+        assertEquals("RONDONIA", resultado.get(0).getLocalProducao().name());
         assertEquals("Beef - Short Ribs", resultado.get(0).getProduto().getNome());
         assertEquals(new BigDecimal("93.75"), resultado.get(0).getProduto().getPeso());
         assertEquals(new BigDecimal("1.77"), resultado.get(0).getProduto().getVolume());
