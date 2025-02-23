@@ -10,7 +10,7 @@ public class CalculationTaxAlagoas implements TaxCalculation {
 
     @Override
     public BigDecimal calculateTax(Prodution prodution) {
-        BigDecimal divisor = new BigDecimal("10.10").setScale(10, RoundingMode.HALF_UP);
+        BigDecimal divisor = new BigDecimal("10.10");
         BigDecimal totalValue = prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade()));
         BigDecimal valueTax = totalValue.divide(divisor, MathContext.DECIMAL32).setScale(2, RoundingMode.UP);
                 
