@@ -10,13 +10,11 @@ public class CalculationTaxMatoGrossoSul implements TaxCalculation {
 
     @Override
     public BigDecimal calculateTax(Prodution prodution) {
-       BigDecimal valueTax = BigDecimal.ZERO;
-       BigDecimal divisor = new BigDecimal("17.17").setScale(10, RoundingMode.HALF_UP);
+       BigDecimal divisor = new BigDecimal("17.17");
+       BigDecimal totalValue = prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade()));
+       BigDecimal valueTax = totalValue.divide(divisor, MathContext.DECIMAL32).setScale(2, RoundingMode.UP);
 
-            valueTax = valueTax.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())
-                .divide(divisor, MathContext.DECIMAL128).setScale(2, RoundingMode.UP)));
-
-            return valueTax;
+        return valueTax;
     }
 
 }

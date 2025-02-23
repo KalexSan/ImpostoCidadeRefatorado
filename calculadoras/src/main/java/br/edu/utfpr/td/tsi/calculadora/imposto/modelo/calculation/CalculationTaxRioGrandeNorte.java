@@ -10,11 +10,9 @@ public class CalculationTaxRioGrandeNorte implements TaxCalculation {
 
     @Override
     public BigDecimal calculateTax(Prodution prodution) {
-        BigDecimal valueTax = BigDecimal.ZERO;
-        BigDecimal divisor = new BigDecimal("31.31").setScale(10, RoundingMode.HALF_UP);
-
-        valueTax = valueTax.add(prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade())
-            .divide(divisor, MathContext.DECIMAL128).setScale(2, RoundingMode.UP)));
+        BigDecimal divisor = new BigDecimal("31.31");
+        BigDecimal totalValue = prodution.getValorUnitario().multiply(new BigDecimal(prodution.getQuantidade()));
+        BigDecimal valueTax = totalValue.divide(divisor, MathContext.DECIMAL32).setScale(2, RoundingMode.UP);
 
         return valueTax;
     }
