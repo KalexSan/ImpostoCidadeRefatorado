@@ -26,9 +26,9 @@ public class CalculationTaxAcreTest {
         product.setAgriculturaFamiliar(false);
         Prodution prodution = new Prodution(product, 2, new BigDecimal("100.00"), FederalUnit.ACRE);
 
-        BigDecimal tax = new BigDecimal("18.01");
+        BigDecimal expectedTax = new BigDecimal("18.01");
         BigDecimal result = taxCalculator.calculateTax(prodution);
-        assertEquals(tax, result);
+        assertEquals(expectedTax, result);
     }
 
     @Test
@@ -37,9 +37,9 @@ public class CalculationTaxAcreTest {
         product.setAgriculturaFamiliar(true);
         Prodution prodution = new Prodution(product, 2, new BigDecimal("100.00"), FederalUnit.ACRE);
 
-        BigDecimal tax = new BigDecimal("13.51");
+        BigDecimal expectedTax = new BigDecimal("13.51");
         BigDecimal result = taxCalculator.calculateTax(prodution);
-        assertEquals(tax, result);
+        assertEquals(expectedTax, result);
 
     }
     
@@ -49,10 +49,10 @@ public class CalculationTaxAcreTest {
         product.setAgriculturaFamiliar(false);
         Prodution prodution = new Prodution(product, 0, new BigDecimal("100.00"), FederalUnit.ACRE);
 
-        BigDecimal tax = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
+        BigDecimal expectedTax = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
         BigDecimal result = taxCalculator.calculateTax(prodution);
 
-        assertEquals(tax, result);
+        assertEquals(expectedTax, result);
     }
 
     @Test
@@ -61,9 +61,9 @@ public class CalculationTaxAcreTest {
         product.setAgriculturaFamiliar(false);
         Prodution prodution = new Prodution(product, 5, BigDecimal.ZERO, FederalUnit.ACRE);
 
-        BigDecimal tax = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
+        BigDecimal expectedTax = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
         BigDecimal result = taxCalculator.calculateTax(prodution);
 
-        assertEquals(tax, result);
+        assertEquals(expectedTax, result);
     }
 }
