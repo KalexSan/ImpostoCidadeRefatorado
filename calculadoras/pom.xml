@@ -8,9 +8,23 @@
     <artifactId>calculadoras</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+        </plugins>
+    </build>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.login>sqp_a197fe577bf3db773cd4d18990ab935f5fbb0a66</sonar.login>
+        <sonar.projectKey>ImpostoCidadeRefatorado</sonar.projectKey>
+        <sonar.projectName>ImpostoCidadeRefatado</sonar.projectName>
     </properties>
 
     <dependencies>
